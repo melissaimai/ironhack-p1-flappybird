@@ -1,5 +1,5 @@
-export const GameOverMessage = () => {
-  const { gameOverImg, startImg, canvas, context } = globalThis
+export const WinMessage = () => {
+  const { win, canvas, context } = globalThis
   return {
     w: 195,
     h: 40,
@@ -13,13 +13,12 @@ export const GameOverMessage = () => {
 
     draw() {
       context.drawImage(
-        gameOverImg,
+        win,
         this.x,
         this.y,
         this.w,
         this.h
       );
-
       context.drawImage(
         startImg,
         this.x2,

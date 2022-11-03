@@ -1,5 +1,5 @@
 export const Background = () => {
-  const {sprites, canvas, context} = globalThis
+  const { sprites, canvas, context } = globalThis
   return {
     spriteX: 390,
     spriteY: 0,

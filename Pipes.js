@@ -14,6 +14,7 @@ export const Pipes = () => {
     },
 
     draw(global) {
+
       this.pairs.forEach(function (pair) {
         const yRandom = pair.y;
         const spaceBetweenPipes = 90;
