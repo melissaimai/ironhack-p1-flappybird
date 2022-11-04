@@ -124,10 +124,7 @@ const Screens = {
     },
     update() {
     },
-    click() {
-      changeScreen(Screens.BEGIN);
-    },
-    keydown() {
+    start() {
       changeScreen(Screens.BEGIN);
     },
   },
@@ -137,10 +134,7 @@ const Screens = {
     },
     update() {
     },
-    click() {
-      changeScreen(Screens.BEGIN);
-    },
-    keydown() {
+    start() {
       changeScreen(Screens.BEGIN);
     },
   },
@@ -166,7 +160,14 @@ window.addEventListener('keydown', function (e) {
       activeScreen.keydown();
     }
   }
+});
 
+window.addEventListener('keydown', function (event) {
+  if (event.key === "Enter") {
+    if (activeScreen.start) {
+      activeScreen.start();
+    }
+  }
 });
 
 changeScreen(Screens.BEGIN);
