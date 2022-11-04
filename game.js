@@ -46,8 +46,6 @@ const win = new Image();
 win.src = './images/youwin.png';
 globalThis.win = win
 
-
-
 //Canvas setup
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
@@ -83,6 +81,9 @@ const Screens = {
       changeScreen(Screens.IN_GAME);
     },
     keydown() {
+      changeScreen(Screens.IN_GAME);
+    },
+    start() {
       changeScreen(Screens.IN_GAME);
     },
     update() {
@@ -124,10 +125,10 @@ const Screens = {
     },
     update() {
     },
-    click() {
-      changeScreen(Screens.BEGIN);
-    },
-    keydown() {
+    // click() {
+    //   changeScreen(Screens.BEGIN);
+    // },
+    start() {
       changeScreen(Screens.BEGIN);
     },
   },
@@ -137,10 +138,10 @@ const Screens = {
     },
     update() {
     },
-    click() {
-      changeScreen(Screens.BEGIN);
-    },
-    keydown() {
+    // click() {
+    //   changeScreen(Screens.BEGIN);
+    // },
+    start() {
       changeScreen(Screens.BEGIN);
     },
   },
@@ -166,7 +167,14 @@ window.addEventListener('keydown', function (e) {
       activeScreen.keydown();
     }
   }
+});
 
+window.addEventListener('keydown', function (event) {
+  if (event.key === "Enter") {
+    if (activeScreen.start) {
+      activeScreen.start();
+    }
+  }
 });
 
 changeScreen(Screens.BEGIN);
